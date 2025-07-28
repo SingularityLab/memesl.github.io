@@ -28,16 +28,6 @@
             height: 100%;
         }
 
-        body.force-landscape #unity-container {
-            width: 100vh;
-            height: 100vw;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform-origin: center center;
-            transform: rotate(90deg) translate(-50%, -50%);
-        }
-
         #fullscreen-button {
             position: fixed;
             top: 15px;
@@ -51,10 +41,27 @@
             cursor: pointer;
             z-index: 100;
         }
+
+        #rotate-message {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: black;
+            color: white;
+            z-index: 9999;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <div id="fullscreen-button"></div>
+
     <div id="unity-container">
         <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
         <div id="unity-loading-bar">
@@ -65,98 +72,105 @@
         </div>
         <div id="unity-warning"></div>
     </div>
+
+    <div id="rotate-message">Please rotate your device to landscape mode</div>
+
     <script>
-      window.addEventListener("load", function () {
-        if ("serviceWorker" in navigator) {
-          navigator.serviceWorker.register("ServiceWorker.js");
-        }
-      });
-
-      var container = document.querySelector("#unity-container");
-      var canvas = document.querySelector("#unity-canvas");
-      var loadingBar = document.querySelector("#unity-loading-bar");
-      var progressBarFull = document.querySelector("#unity-progress-bar-full");
-      var warningBanner = document.querySelector("#unity-warning");
-
-      function unityShowBanner(msg, type) {
-        function updateBannerVisibility() {
-          warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
-        }
-        var div = document.createElement('div');
-        div.innerHTML = msg;
-        warningBanner.appendChild(div);
-        if (type == 'error') div.style = 'background: red; padding: 10px;';
-        else {
-          if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
-          setTimeout(function() {
-            warningBanner.removeChild(div);
-            updateBannerVisibility();
-          }, 5000);
-        }
-        updateBannerVisibility();
-      }
-
-      var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/874c2c95269f9a45924cef85aa0c3c5c.loader.js";
-      var config = {
-        arguments: [],
-        dataUrl: buildUrl + "/ac73490ca11345898f81e2ab5dd7f16e.data",
-        frameworkUrl: buildUrl + "/add09181dcaec87c8330b2ea2d613b1f.framework.js",
-        codeUrl: buildUrl + "/113a030d3c734237350a79e351ced810.wasm",
-        streamingAssetsUrl: "StreamingAssets",
-        companyName: "DefaultCompany",
-        productName: "Quantum-Sports-Arena-Brawler",
-        productVersion: "0.1.0",
-        showBanner: unityShowBanner,
-      };
-
-      loadingBar.style.display = "block";
-
-      var script = document.createElement("script");
-      script.src = loaderUrl;
-      script.onload = () => {
-        createUnityInstance(canvas, config, (progress) => {
-          progressBarFull.style.width = 100 * progress + "%";
-        }).then((unityInstance) => {
-          loadingBar.style.display = "none";
-        }).catch((message) => {
-          alert(message);
+        window.addEventListener("load", function () {
+            if ("serviceWorker" in navigator) {
+                navigator.serviceWorker.register("ServiceWorker.js");
+            }
         });
-      };
-      document.body.appendChild(script);
+
+        var container = document.querySelector("#unity-container");
+        var canvas = document.querySelector("#unity-canvas");
+        var loadingBar = document.querySelector("#unity-loading-bar");
+        var progressBarFull = document.querySelector("#unity-progress-bar-full");
+        var warningBanner = document.querySelector("#unity-warning");
+
+        function unityShowBanner(msg, type) {
+            function updateBannerVisibility() {
+                warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
+            }
+            var div = document.createElement('div');
+            div.innerHTML = msg;
+            warningBanner.appendChild(div);
+            if (type == 'error') div.style = 'background: red; padding: 10px;';
+            else {
+                if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
+                setTimeout(function () {
+                    warningBanner.removeChild(div);
+                    updateBannerVisibility();
+                }, 5000);
+            }
+            updateBannerVisibility();
+        }
+
+        var buildUrl = "Build";
+        var loaderUrl = buildUrl + "/874c2c95269f9a45924cef85aa0c3c5c.loader.js";
+        var config = {
+            arguments: [],
+            dataUrl: buildUrl + "/382e4cbda63dbf83aee2bdcf609b62cd.data",
+            frameworkUrl: buildUrl + "/add09181dcaec87c8330b2ea2d613b1f.framework.js",
+            codeUrl: buildUrl + "/113a030d3c734237350a79e351ced810.wasm",
+            streamingAssetsUrl: "StreamingAssets",
+            companyName: "DefaultCompany",
+            productName: "Quantum-Sports-Arena-Brawler",
+            productVersion: "0.1.0",
+            showBanner: unityShowBanner,
+        };
+
+        loadingBar.style.display = "block";
+
+        var script = document.createElement("script");
+        script.src = loaderUrl;
+        script.onload = () => {
+            createUnityInstance(canvas, config, (progress) => {
+                progressBarFull.style.width = 100 * progress + "%";
+            }).then((unityInstance) => {
+                loadingBar.style.display = "none";
+            }).catch((message) => {
+                alert(message);
+            });
+        };
+        document.body.appendChild(script);
     </script>
+
     <script>
-      function applyOrientation() {
-        var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-        if (!isMobile) return;
+        function checkOrientation() {
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            const isPortrait = window.innerHeight > window.innerWidth;
+            const message = document.getElementById("rotate-message");
+            const container = document.getElementById("unity-container");
 
-        var isPortrait = window.innerHeight > window.innerWidth;
-
-        if (isPortrait) {
-          document.body.classList.add("force-landscape");
-        } else {
-          document.body.classList.remove("force-landscape");
+            if (isMobile && isPortrait) {
+                message.style.display = "flex";
+                container.style.display = "none";
+            } else {
+                message.style.display = "none";
+                container.style.display = "block";
+            }
         }
-      }
 
-      function requestNativeFullscreen() {
-        const elem = document.documentElement;
-        if (elem.requestFullscreen) {
-            elem.requestFullscreen();
-        } else if (elem.mozRequestFullScreen) {
-            elem.mozRequestFullScreen();
-        } else if (elem.webkitRequestFullscreen) {
-            elem.webkitRequestFullscreen();
-        } else if (elem.msRequestFullscreen) {
-            elem.msRequestFullscreen();
+        function requestNativeFullscreen() {
+            const elem = document.documentElement;
+            if (elem.requestFullscreen) {
+                elem.requestFullscreen();
+            } else if (elem.mozRequestFullScreen) {
+                elem.mozRequestFullScreen();
+            } else if (elem.webkitRequestFullscreen) {
+                elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) {
+                elem.msRequestFullscreen();
+            }
         }
-      }
 
-      window.addEventListener("resize", applyOrientation);
-      window.addEventListener("load", applyOrientation);
+        window.addEventListener("load", checkOrientation);
+        window.addEventListener("resize", checkOrientation);
+        window.addEventListener("orientationchange", checkOrientation);
 
-      var fullscreenButton = document.getElementById("fullscreen-button");
-      fullscreenButton.addEventListener('click', requestNativeFullscreen);
+        const fullscreenButton = document.getElementById("fullscreen-button");
+        fullscreenButton.addEventListener("click", requestNativeFullscreen);
     </script>
 </body>
 </html>
