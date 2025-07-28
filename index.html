@@ -9,17 +9,17 @@
     <link rel="manifest" href="manifest.webmanifest">
   </head>
   <body>
-    <div id="unity-container">
-      <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
-      <div id="unity-loading-bar">
-        <div id="unity-logo"></div>
-        <div id="unity-progress-bar-empty">
-          <div id="unity-progress-bar-full"></div>
-        </div>
+      <div id="unity-container">
+          <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
+          <div id="unity-loading-bar">
+              <div id="unity-logo"></div>
+              <div id="unity-progress-bar-empty">
+                  <div id="unity-progress-bar-full"></div>
+              </div>
+          </div>
+          <div id="unity-warning"> </div>
       </div>
-      <div id="unity-warning"> </div>
-    </div>
-    <script>
+      <script>
       window.addEventListener("load", function () {
         if ("serviceWorker" in navigator) {
           navigator.serviceWorker.register("ServiceWorker.js");
@@ -60,7 +60,7 @@
       var loaderUrl = buildUrl + "/874c2c95269f9a45924cef85aa0c3c5c.loader.js";
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/dfe5068bb4f8acde1e6cb5f4ef591fae.data",
+        dataUrl: buildUrl + "/265fd020001c19d82ca649b5d65521cc.data",
         frameworkUrl: buildUrl + "/add09181dcaec87c8330b2ea2d613b1f.framework.js",
         codeUrl: buildUrl + "/113a030d3c734237350a79e351ced810.wasm",
         streamingAssetsUrl: "StreamingAssets",
@@ -99,6 +99,27 @@
         });
       };
       document.body.appendChild(script);
-    </script>
+      </script>
+      <script>function requestFullscreen() {
+        const elem = document.documentElement;
+        if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+        } else if (elem.mozRequestFullScreen) {
+            elem.mozRequestFullScreen();
+        } else if (elem.webkitRequestFullscreen) {
+            elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) {
+            elem.msRequestFullscreen();
+        }
+    }
+
+    function lockOrientation() {
+        screen.orientation.lock('landscape').catch(err => console.log(err));
+    }
+
+    document.addEventListener('click', function () {
+        requestFullscreen();
+        lockOrientation();
+    }, { once: true });</script>
   </body>
 </html>
