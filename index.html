@@ -7,14 +7,15 @@
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
     <link rel="manifest" href="manifest.webmanifest">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes">
     <style>
         html, body {
-            background: #000;
+            margin: 0;
+            padding: 0;
             width: 100%;
             height: 100%;
             overflow: hidden;
-            margin: 0;
-            padding: 0;
+            background-color: #000;
         }
 
         #unity-container {
@@ -22,37 +23,33 @@
             height: 100%;
         }
 
-        #orientation-warning {
+        body.force-landscape #unity-container {
+            width: 100vh;
+            height: 100vw;
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background-color: #1F1F1F;
-            color: white;
-            font-family: sans-serif;
-            font-size: 20px;
-            text-align: center;
-            z-index: 1000;
-            display: none;
-            justify-content: center;
-            align-items: center;
+            top: 50%;
+            left: 50%;
+            transform-origin: center center;
+            transform: rotate(90deg) translate(-50%, -50%);
         }
 
-        body.portrait #orientation-warning {
-            display: flex;
-        }
-
-        body.portrait #unity-container {
-            display: none;
+        #fullscreen-button {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            background: url('TemplateData/fullscreen-icon.png') center / contain no-repeat;
+            background-color: rgba(0, 0, 0, 0.5);
+            border: 1px solid white;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 100;
         }
     </style>
 </head>
 <body>
-    <div id="orientation-warning">
-        <div>Пожалуйста, поверните ваше устройство</div>
-    </div>
-
+    <div id="fullscreen-button"></div>
     <div id="unity-container">
         <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
         <div id="unity-loading-bar">
@@ -63,7 +60,6 @@
         </div>
         <div id="unity-warning"></div>
     </div>
-
     <script>
       window.addEventListener("load", function () {
         if ("serviceWorker" in navigator) {
@@ -99,7 +95,7 @@
       var loaderUrl = buildUrl + "/874c2c95269f9a45924cef85aa0c3c5c.loader.js";
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/2141e7dbf9f7fd6fd10448bf83f1081d.data",
+        dataUrl: buildUrl + "/5d7c2abc0d37ca88e538123b1772cb78.data",
         frameworkUrl: buildUrl + "/add09181dcaec87c8330b2ea2d613b1f.framework.js",
         codeUrl: buildUrl + "/113a030d3c734237350a79e351ced810.wasm",
         streamingAssetsUrl: "StreamingAssets",
@@ -108,13 +104,6 @@
         productVersion: "0.1.0",
         showBanner: unityShowBanner,
       };
-
-      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        var meta = document.createElement('meta');
-        meta.name = 'viewport';
-        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
-        document.getElementsByTagName('head')[0].appendChild(meta);
-      }
 
       loadingBar.style.display = "block";
 
@@ -132,16 +121,37 @@
       document.body.appendChild(script);
     </script>
     <script>
-      function checkOrientation() {
+      function applyOrientation() {
+        var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        if (!isMobile) return;
+
         var isPortrait = window.innerHeight > window.innerWidth;
+
         if (isPortrait) {
-          document.body.classList.add("portrait");
+          document.body.classList.add("force-landscape");
         } else {
-          document.body.classList.remove("portrait");
+          document.body.classList.remove("force-landscape");
         }
       }
-      window.addEventListener("resize", checkOrientation);
-      window.addEventListener("load", checkOrientation);
+
+      function requestNativeFullscreen() {
+        const elem = document.documentElement;
+        if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+        } else if (elem.mozRequestFullScreen) {
+            elem.mozRequestFullScreen();
+        } else if (elem.webkitRequestFullscreen) {
+            elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) {
+            elem.msRequestFullscreen();
+        }
+      }
+
+      window.addEventListener("resize", applyOrientation);
+      window.addEventListener("load", applyOrientation);
+
+      var fullscreenButton = document.getElementById("fullscreen-button");
+      fullscreenButton.addEventListener('click', requestNativeFullscreen);
     </script>
 </body>
 </html>
