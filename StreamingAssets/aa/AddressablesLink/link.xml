@@ -1,7 +1,11 @@
 <linker>
   <assembly fullname="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="BallEntityView" preserve="all" />
+    <type fullname="BallViewController" preserve="all" />
     <type fullname="BaseWallArea" preserve="all" />
     <type fullname="CameraController" preserve="all" />
+    <type fullname="CameraShakeSource" preserve="all" />
+    <type fullname="DecalIndicator" preserve="all" />
     <type fullname="EnvironmentController" preserve="all" />
     <type fullname="EventSystemSingleton" preserve="all" />
     <type fullname="LobbyUI" preserve="all" />
@@ -9,22 +13,33 @@
     <type fullname="LocalPlayerAccess" preserve="all" />
     <type fullname="LocalPlayersConfig" preserve="all" />
     <type fullname="LocalPlayersManager" preserve="all" />
+    <type fullname="PlayerGizmos" preserve="all" />
     <type fullname="PlayersManager" preserve="all" />
+    <type fullname="PlayerViewController" preserve="all" />
     <type fullname="RoomStateManager" preserve="all" />
     <type fullname="TextureScroller" preserve="all" />
+    <type fullname="UIAbility" preserve="all" />
     <type fullname="UIAbilityController" preserve="all" />
     <type fullname="UIFeedElement" preserve="all" />
     <type fullname="UIGameplay" preserve="all" />
     <type fullname="UIPlayerIndicator" preserve="all" />
   </assembly>
+  <assembly fullname="CFXRRuntime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="CartoonFX.CFXR_Effect" preserve="all" />
+    <type fullname="CartoonFX.CFXR_Effect/AnimatedLight" preserve="nothing" serialized="true" />
+    <type fullname="CartoonFX.CFXR_Effect/CameraShake" preserve="nothing" serialized="true" />
+  </assembly>
   <assembly fullname="Cinemachine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="Cinemachine.CinemachineBrain" preserve="all" />
     <type fullname="Cinemachine.CinemachineFramingTransposer" preserve="all" />
     <type fullname="Cinemachine.CinemachineImpulseListener" preserve="all" />
+    <type fullname="Cinemachine.CinemachineImpulseSource" preserve="all" />
     <type fullname="Cinemachine.CinemachinePipeline" preserve="all" />
     <type fullname="Cinemachine.CinemachineTargetGroup" preserve="all" />
     <type fullname="Cinemachine.CinemachineVirtualCamera" preserve="all" />
     <type fullname="Cinemachine.NoiseSettings" preserve="all" />
+    <type fullname="Cinemachine.CinemachineImpulseDefinition" preserve="nothing" serialized="true" />
+    <type fullname="Cinemachine.CinemachineImpulseManager/EnvelopeDefinition" preserve="nothing" serialized="true" />
     <type fullname="Cinemachine.CinemachineBlendDefinition" preserve="nothing" serialized="true" />
     <type fullname="Cinemachine.CinemachineBrain/BrainEvent" preserve="nothing" serialized="true" />
     <type fullname="Cinemachine.CinemachineBrain/VcamActivatedEvent" preserve="nothing" serialized="true" />
@@ -33,6 +48,70 @@
     <type fullname="Cinemachine.LensSettings" preserve="nothing" serialized="true" />
     <type fullname="Cinemachine.NoiseSettings/NoiseParams" preserve="nothing" serialized="true" />
     <type fullname="Cinemachine.NoiseSettings/TransformNoiseParams" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="Quantum.BotSDK.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="Quantum.AIBlackboard" preserve="all" />
+    <type fullname="Quantum.AIBlackboardInitializer" preserve="all" />
+    <type fullname="Quantum.AIConfigBase" preserve="all" />
+    <type fullname="Quantum.HFSMAndDecision" preserve="all" />
+    <type fullname="Quantum.HFSMNotDecision" preserve="all" />
+    <type fullname="Quantum.HFSMOrDecision" preserve="all" />
+    <type fullname="Quantum.HFSMRoot" preserve="all" />
+    <type fullname="Quantum.HFSMState" preserve="all" />
+    <type fullname="Quantum.TrueDecision" preserve="all" />
+    <type fullname="Quantum.AIBlackboardEntry" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.AIBlackboardValueKey" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.AIConfigBase/KeyValuePair" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.AIConfigBase/Value" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.HFSMTransition" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="Quantum.Engine, Version=3.0.4.1707, Culture=neutral, PublicKeyToken=null">
+    <type fullname="Quantum.BinaryData" preserve="all" />
+    <type fullname="Quantum.CharacterController2DConfig" preserve="all" />
+    <type fullname="Quantum.CharacterController3DConfig" preserve="all" />
+    <type fullname="Quantum.EntityPrototype" preserve="all" />
+    <type fullname="Quantum.EntityView" preserve="all" />
+    <type fullname="Quantum.Map" preserve="all" />
+    <type fullname="Quantum.NavMesh" preserve="all" />
+    <type fullname="Quantum.NavMeshAgentConfig" preserve="all" />
+    <type fullname="Quantum.PhysicsMaterial" preserve="all" />
+    <type fullname="Quantum.Allocator.HeapTrackingMode" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.AssetGuid" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.AssetObjectIdentifier" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.AssetRef" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.AssetRef`1" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.CallbackFlags" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.ComponentPrototypeSet" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.Core.FrameBase/EntitiesConfig" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.FPAnimationCurve" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.FPAnimationCurve/Keyframe" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.LayerMask" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.MapStaticCollider3D" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.Navigation/AvoidanceQuality" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.Navigation/AvoidanceType" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.Navigation/Config" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.Navigation/MovementType" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.Navigation/PathQuality" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.Navigation/RawPathAllocationStrategy" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.Navigation/VerticalPositioningType" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.PhysicsCombineFunction" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.PhysicsCommon/Config" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.PhysicsCommon/ConstraintsSolverType" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.PhysicsCommon/PhysicsNativeLib" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.Prototypes.CharacterController3DPrototype" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.Prototypes.NavMeshPathfinderPrototype" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.Prototypes.PhysicsBody3DPrototype" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.Prototypes.PhysicsBodyInertiaMode" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.Prototypes.PhysicsCallbacks3DPrototype" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.Prototypes.PhysicsCollider3DPrototype" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.Prototypes.Transform3DPrototype" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.Prototypes.ViewPrototype" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.QEnum32`1" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.SerializableType`1" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.Shape2DConfig" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.Shape3DConfig" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.StaticColliderData" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.InstantReplaySettings" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="Quantum.Menu, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="CharacterSelectUI" preserve="all" />
@@ -60,15 +139,80 @@
     <type fullname="Quantum.Menu.QuantumMenuConnectionShutdownFlag" preserve="nothing" serialized="true" />
     <type fullname="Quantum.Menu.QuantumMenuScreenPluginPing/ColorThresholds" preserve="nothing" serialized="true" />
   </assembly>
+  <assembly fullname="Quantum.Simulation, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="Quantum.AttackAbilityData" preserve="all" />
+    <type fullname="Quantum.BallHandlingData" preserve="all" />
+    <type fullname="Quantum.BlockAbilityData" preserve="all" />
+    <type fullname="Quantum.BoostAreaColliderData" preserve="all" />
+    <type fullname="Quantum.BotActionChooseTargetClosest" preserve="all" />
+    <type fullname="Quantum.BotActionFindClosestBoostArea" preserve="all" />
+    <type fullname="Quantum.BotActionInputStrikeFinish" preserve="all" />
+    <type fullname="Quantum.BotActionMoveToTargetFinish" preserve="all" />
+    <type fullname="Quantum.BotActionMoveToTargetStart" preserve="all" />
+    <type fullname="Quantum.BotActionRepathToTarget" preserve="all" />
+    <type fullname="Quantum.BotActionResetDashDecision" preserve="all" />
+    <type fullname="Quantum.BotActionStartRecheckTimer" preserve="all" />
+    <type fullname="Quantum.BotActionTargetSearchCoolStart" preserve="all" />
+    <type fullname="Quantum.BotDecisionCanDash" preserve="all" />
+    <type fullname="Quantum.BotDecisionHasBoostArea" preserve="all" />
+    <type fullname="Quantum.BotDecisionHasEnoughBoost" preserve="all" />
+    <type fullname="Quantum.BotDecisionHasTarget" preserve="all" />
+    <type fullname="Quantum.BotDecisionIsBoostAreaReached" preserve="all" />
+    <type fullname="Quantum.BotDecisionIsDistracted" preserve="all" />
+    <type fullname="Quantum.BotDecisionIsGameRunning" preserve="all" />
+    <type fullname="Quantum.BotDecisionIsRespawning" preserve="all" />
+    <type fullname="Quantum.BotDecisionIsTargetFalling" preserve="all" />
+    <type fullname="Quantum.BotDecisionIsTargetReached" preserve="all" />
+    <type fullname="Quantum.BotDecisionIsTargetRespawning" preserve="all" />
+    <type fullname="Quantum.BotDecisionIsTargetSearchCooled" preserve="all" />
+    <type fullname="Quantum.BotDecisionTargetRecheckNeeded" preserve="all" />
+    <type fullname="Quantum.ChargeAbilityData" preserve="all" />
+    <type fullname="Quantum.DashAbilityData" preserve="all" />
+    <type fullname="Quantum.FuryUltimateAbilityData" preserve="all" />
+    <type fullname="Quantum.GameSettingsData" preserve="all" />
+    <type fullname="Quantum.JumpAbilityData" preserve="all" />
+    <type fullname="Quantum.KnockbackStatusEffectData" preserve="all" />
+    <type fullname="Quantum.PlayerMovementData" preserve="all" />
+    <type fullname="Quantum.SimulationConfig" preserve="all" />
+    <type fullname="Quantum.SystemsConfig" preserve="all" />
+    <type fullname="Quantum.ThrowBallAbilityData" preserve="all" />
+    <type fullname="Quantum.TumTumUltimateAbilityData" preserve="all" />
+    <type fullname="Quantum.AttackSettings" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.BotSettings" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.Prototypes.AbilityInventoryPrototype" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.Prototypes.AbilityPrototype" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.Prototypes.BallStatusPrototype" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.Prototypes.BoostAreaPrototype" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.Prototypes.BotPrototype" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.Prototypes.KnockbackStatusEffectPrototype" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.Prototypes.PlayerSpawnerPrototype" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.Prototypes.PlayerStatusPrototype" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.Prototypes.StaticColliderLinkPrototype" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.Prototypes.StatusEffectPrototype" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.Prototypes.TeamBaseWallStaticColliderTagPrototype" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.StatusEffectConfig" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.SystemBase" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.SystemsConfig/SystemEntry" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.Prototypes.BallSpawnerPrototype" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.RuntimeConfig" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.RuntimePlayer" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.SessionRunner/Arguments" preserve="nothing" serialized="true" />
+  </assembly>
   <assembly fullname="Quantum.Unity, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="Quantum.PhotonServerSettings" preserve="all" />
+    <type fullname="Quantum.QPrototypeAbilityInventory" preserve="all" />
     <type fullname="Quantum.QPrototypeBallSpawner" preserve="all" />
+    <type fullname="Quantum.QPrototypeBallStatus" preserve="all" />
     <type fullname="Quantum.QPrototypeBoostArea" preserve="all" />
+    <type fullname="Quantum.QPrototypeBot" preserve="all" />
+    <type fullname="Quantum.QPrototypeCharacterController3D" preserve="all" />
     <type fullname="Quantum.QPrototypePlayerSpawner" preserve="all" />
+    <type fullname="Quantum.QPrototypePlayerStatus" preserve="all" />
     <type fullname="Quantum.QPrototypeStaticColliderLink" preserve="all" />
     <type fullname="Quantum.QPrototypeTeamBaseWallStaticColliderTag" preserve="all" />
     <type fullname="Quantum.QuantumDeterministicSessionConfigAsset" preserve="all" />
     <type fullname="Quantum.QuantumEntityPrototype" preserve="all" />
+    <type fullname="Quantum.QuantumEntityView" preserve="all" />
     <type fullname="Quantum.QuantumEntityViewUpdater" preserve="all" />
     <type fullname="Quantum.QuantumMapData" preserve="all" />
     <type fullname="Quantum.QuantumMapNavMeshUnity" preserve="all" />
@@ -76,6 +220,8 @@
     <type fullname="Quantum.QuantumRunnerLocalDebug" preserve="all" />
     <type fullname="Quantum.QuantumStaticBoxCollider3D" preserve="all" />
     <type fullname="Quantum.QuantumStats" preserve="all" />
+    <type fullname="Quantum.QuantumUnityDB" preserve="all" />
+    <type fullname="Quantum.QuantumAssetObjectSourceStaticLazy" preserve="nothing" serialized="true" />
     <type fullname="Quantum.QuantumEntityPrototype/InitialNavMeshTargetInfo" preserve="nothing" serialized="true" />
     <type fullname="Quantum.QuantumEntityPrototype/NavMeshAvoidanceAgentInfo" preserve="nothing" serialized="true" />
     <type fullname="Quantum.QuantumEntityPrototype/NavMeshPathfinderInfo" preserve="nothing" serialized="true" />
@@ -86,6 +232,8 @@
     <type fullname="Quantum.QuantumEntityPrototype/PhysicsColliderGeneric" preserve="nothing" serialized="true" />
     <type fullname="Quantum.QuantumEntityPrototype/SourceShapeGenericSettings" preserve="nothing" serialized="true" />
     <type fullname="Quantum.QuantumEntityPrototype/Transform2DVerticalInfo" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.QuantumEntityView/EntityUnityEvent" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.QuantumUnityDB/Entry" preserve="nothing" serialized="true" />
     <type fullname="Quantum.QuantumMapDataBakeFlags" preserve="nothing" serialized="true" />
     <type fullname="Quantum.QuantumNavMesh/ImportSettings" preserve="nothing" serialized="true" />
     <type fullname="Quantum.QuantumRunnerLocalDebug/DynamicAssetDBSettings" preserve="nothing" serialized="true" />
@@ -155,6 +303,7 @@
     <type fullname="UnityEngine.Rendering.Universal.ChromaticAberration" preserve="all" />
     <type fullname="UnityEngine.Rendering.Universal.ColorAdjustments" preserve="all" />
     <type fullname="UnityEngine.Rendering.Universal.ColorCurves" preserve="all" />
+    <type fullname="UnityEngine.Rendering.Universal.DecalProjector" preserve="all" />
     <type fullname="UnityEngine.Rendering.Universal.DepthOfField" preserve="all" />
     <type fullname="UnityEngine.Rendering.Universal.LensDistortion" preserve="all" />
     <type fullname="UnityEngine.Rendering.Universal.Tonemapping" preserve="all" />
@@ -198,6 +347,7 @@
   <assembly fullname="UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="UnityEngine.AnimationClip" preserve="all" />
     <type fullname="UnityEngine.Animator" preserve="all" />
+    <type fullname="UnityEngine.Avatar" preserve="all" />
     <type fullname="UnityEngine.RuntimeAnimatorController" preserve="all" />
   </assembly>
   <assembly fullname="UnityEngine.AudioModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
@@ -221,6 +371,7 @@
     <type fullname="UnityEngine.RectTransform" preserve="all" />
     <type fullname="UnityEngine.RenderSettings" preserve="all" />
     <type fullname="UnityEngine.Shader" preserve="all" />
+    <type fullname="UnityEngine.SkinnedMeshRenderer" preserve="all" />
     <type fullname="UnityEngine.Sprite" preserve="all" />
     <type fullname="UnityEngine.Texture2D" preserve="all" />
     <type fullname="UnityEngine.TrailRenderer" preserve="all" />
@@ -228,8 +379,8 @@
     <type fullname="UnityEngine.Events.ArgumentCache" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Events.PersistentCallGroup" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Events.PersistentListenerMode" preserve="nothing" serialized="true" />
-    <type fullname="UnityEngine.Events.UnityEvent`1" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.RectOffset" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Events.UnityEvent`1" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Events.UnityEvent" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="UnityEngine.ParticleSystemModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
@@ -262,11 +413,11 @@
     <type fullname="UnityEngine.UI.Toggle" preserve="all" />
     <type fullname="UnityEngine.UI.ToggleGroup" preserve="all" />
     <type fullname="UnityEngine.UI.VerticalLayoutGroup" preserve="all" />
+    <type fullname="UnityEngine.UI.MaskableGraphic/CullStateChangedEvent" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.UI.AnimationTriggers" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.UI.Button/ButtonClickedEvent" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.UI.ColorBlock" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.UI.FontData" preserve="nothing" serialized="true" />
-    <type fullname="UnityEngine.UI.MaskableGraphic/CullStateChangedEvent" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.UI.Navigation" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.UI.SpriteState" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.UI.ScrollRect/ScrollRectEvent" preserve="nothing" serialized="true" />
@@ -284,31 +435,11 @@
   <assembly fullname="Quantum.Deterministic">
     <type fullname="Photon.Deterministic.DeterministicSessionConfig" preserve="nothing" serialized="true" />
     <type fullname="Photon.Deterministic.FP" preserve="nothing" serialized="true" />
+    <type fullname="Photon.Deterministic.FPQuaternion" preserve="nothing" serialized="true" />
     <type fullname="Photon.Deterministic.FPVector2" preserve="nothing" serialized="true" />
     <type fullname="Photon.Deterministic.FPVector3" preserve="nothing" serialized="true" />
     <type fullname="Photon.Deterministic.NullableFP" preserve="nothing" serialized="true" />
     <type fullname="Quantum.PlayerRef" preserve="nothing" serialized="true" />
-  </assembly>
-  <assembly fullname="Quantum.Engine">
-    <type fullname="Quantum.AssetGuid" preserve="nothing" serialized="true" />
-    <type fullname="Quantum.AssetRef" preserve="nothing" serialized="true" />
-    <type fullname="Quantum.AssetRef`1" preserve="nothing" serialized="true" />
-    <type fullname="Quantum.CallbackFlags" preserve="nothing" serialized="true" />
-    <type fullname="Quantum.InstantReplaySettings" preserve="nothing" serialized="true" />
-    <type fullname="Quantum.Prototypes.PhysicsBodyInertiaMode" preserve="nothing" serialized="true" />
-    <type fullname="Quantum.QEnum32`1" preserve="nothing" serialized="true" />
-    <type fullname="Quantum.Shape2DConfig" preserve="nothing" serialized="true" />
-    <type fullname="Quantum.Shape3DConfig" preserve="nothing" serialized="true" />
-  </assembly>
-  <assembly fullname="Quantum.Simulation">
-    <type fullname="Quantum.Prototypes.BallSpawnerPrototype" preserve="nothing" serialized="true" />
-    <type fullname="Quantum.Prototypes.BoostAreaPrototype" preserve="nothing" serialized="true" />
-    <type fullname="Quantum.Prototypes.PlayerSpawnerPrototype" preserve="nothing" serialized="true" />
-    <type fullname="Quantum.Prototypes.StaticColliderLinkPrototype" preserve="nothing" serialized="true" />
-    <type fullname="Quantum.Prototypes.TeamBaseWallStaticColliderTagPrototype" preserve="nothing" serialized="true" />
-    <type fullname="Quantum.RuntimeConfig" preserve="nothing" serialized="true" />
-    <type fullname="Quantum.RuntimePlayer" preserve="nothing" serialized="true" />
-    <type fullname="Quantum.SessionRunner/Arguments" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="UnityEngine.TextCoreFontEngineModule">
     <type fullname="UnityEngine.TextCore.FaceInfo" preserve="nothing" serialized="true" />
