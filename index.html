@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Unity Web Player | Quantum-Sports-Arena-Brawler</title>
@@ -15,7 +16,8 @@
             width: 100%;
             height: 100%;
             overflow: hidden;
-            background-color: #000;
+            background-color: var(--tg-theme-bg-color, #000);
+            color: var(--tg-theme-text-color, #fff);
         }
 
         #unity-container {
@@ -31,7 +33,7 @@
         #fullscreen-button {
             position: fixed;
             top: 15px;
-            right: 15px;
+            left: 15px;
             width: 40px;
             height: 40px;
             background: url('TemplateData/fullscreen-icon.png') center / contain no-repeat;
@@ -48,8 +50,8 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            background-color: black;
-            color: white;
+            background-color: var(--tg-theme-bg-color, #000);
+            color: var(--tg-theme-text-color, #fff);
             z-index: 9999;
             display: none;
             justify-content: center;
@@ -73,9 +75,14 @@
         <div id="unity-warning"></div>
     </div>
 
-    <div id="rotate-message">Please rotate your device to landscape mode</div>
+    <div id="rotate-message">Пожалуйста, поверните устройство</div>
 
     <script>
+        if (window.Telegram && window.Telegram.WebApp) {
+            Telegram.WebApp.ready();
+            Telegram.WebApp.expand(); 
+        }
+
         window.addEventListener("load", function () {
             if ("serviceWorker" in navigator) {
                 navigator.serviceWorker.register("ServiceWorker.js");
@@ -107,12 +114,12 @@
         }
 
         var buildUrl = "Build";
-        var loaderUrl = buildUrl + "/093a3935722dbe4902713d42ee637a23.loader.js";
+        var loaderUrl = buildUrl + "/bc76979f83519c62d58e8c830cd0f453.loader.js";
         var config = {
             arguments: [],
-            dataUrl: buildUrl + "/1a17179dfe7f2b48b7dd7b7bc48e7590.data",
-            frameworkUrl: buildUrl + "/8ba657418effdb77622a5a3a25c4441c.framework.js",
-            codeUrl: buildUrl + "/d8a119e658acc7ffe6b5af35ccdb6e09.wasm",
+            dataUrl: buildUrl + "/15a59aa846f8bf194500ad53225ffaf9.data",
+            frameworkUrl: buildUrl + "/56374c057e759b41f6d4a7f8349cfbff.framework.js",
+            codeUrl: buildUrl + "/696d1d21e4ca8566501e46cf1b054c5f.wasm",
             streamingAssetsUrl: "StreamingAssets",
             companyName: "DefaultCompany",
             productName: "Quantum-Sports-Arena-Brawler",
@@ -142,26 +149,31 @@
             const isPortrait = window.innerHeight > window.innerWidth;
             const message = document.getElementById("rotate-message");
             const container = document.getElementById("unity-container");
+            const fullscreenBtn = document.getElementById("fullscreen-button");
 
             if (isMobile && isPortrait) {
                 message.style.display = "flex";
                 container.style.display = "none";
+                fullscreenBtn.style.display = "none";
             } else {
                 message.style.display = "none";
                 container.style.display = "block";
+                fullscreenBtn.style.display = "block";
             }
         }
 
-        function requestNativeFullscreen() {
-            const elem = document.documentElement;
-            if (elem.requestFullscreen) {
-                elem.requestFullscreen();
-            } else if (elem.mozRequestFullScreen) {
-                elem.mozRequestFullScreen();
-            } else if (elem.webkitRequestFullscreen) {
-                elem.webkitRequestFullscreen();
-            } else if (elem.msRequestFullscreen) {
-                elem.msRequestFullscreen();
+        function requestTelegramFullscreen() {
+            if (window.Telegram && window.Telegram.WebApp) {
+                const webApp = window.Telegram.WebApp;
+                webApp.expand();
+                if (webApp.isExpanded) {
+                   webApp.requestFullscreen();
+                }
+            } else {
+                console.log("Telegram API not found. Using standard fullscreen.");
+                document.documentElement.requestFullscreen().catch(err => {
+                    console.error(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+                });
             }
         }
 
@@ -170,7 +182,7 @@
         window.addEventListener("orientationchange", checkOrientation);
 
         const fullscreenButton = document.getElementById("fullscreen-button");
-        fullscreenButton.addEventListener("click", requestNativeFullscreen);
+        fullscreenButton.addEventListener("click", requestTelegramFullscreen);
     </script>
 </body>
 </html>
