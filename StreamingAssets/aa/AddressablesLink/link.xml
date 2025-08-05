@@ -17,6 +17,9 @@
     <type fullname="UIGameplay" preserve="all" />
     <type fullname="UIPlayerIndicator" preserve="all" />
   </assembly>
+  <assembly fullname="Assembly-CSharp-firstpass, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="ResilientOnScreenStick" preserve="all" />
+  </assembly>
   <assembly fullname="Cinemachine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="Cinemachine.CinemachineBrain" preserve="all" />
     <type fullname="Cinemachine.CinemachineFramingTransposer" preserve="all" />
@@ -120,11 +123,10 @@
     <type fullname="Unity.AI.Navigation.NavMeshLink" preserve="all" />
     <type fullname="Unity.AI.Navigation.NavMeshSurface" preserve="all" />
   </assembly>
-  <assembly fullname="Unity.InputSystem, Version=1.14.0.0, Culture=neutral, PublicKeyToken=null">
+  <assembly fullname="Unity.InputSystem, Version=1.14.1.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="UnityEngine.InputSystem.InputActionAsset" preserve="all" />
     <type fullname="UnityEngine.InputSystem.InputActionReference" preserve="all" />
     <type fullname="UnityEngine.InputSystem.OnScreen.OnScreenButton" preserve="all" />
-    <type fullname="UnityEngine.InputSystem.OnScreen.OnScreenStick" preserve="all" />
     <type fullname="UnityEngine.InputSystem.PlayerInput" preserve="all" />
     <type fullname="UnityEngine.InputSystem.UI.InputSystemUIInputModule" preserve="all" />
     <type fullname="UnityEngine.InputSystem.InputAction" preserve="nothing" serialized="true" />
