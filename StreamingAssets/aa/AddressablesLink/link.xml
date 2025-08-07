@@ -4,6 +4,9 @@
     <type fullname="CameraController" preserve="all" />
     <type fullname="EnvironmentController" preserve="all" />
     <type fullname="EventSystemSingleton" preserve="all" />
+    <type fullname="ithappy.OscillatePosition" preserve="all" />
+    <type fullname="ithappy.OscillateRotation" preserve="all" />
+    <type fullname="ithappy.OscillateScale" preserve="all" />
     <type fullname="LobbyUI" preserve="all" />
     <type fullname="LocalInput" preserve="all" />
     <type fullname="LocalPlayerAccess" preserve="all" />
@@ -67,17 +70,21 @@
     <type fullname="Quantum.PhotonServerSettings" preserve="all" />
     <type fullname="Quantum.QPrototypeBallSpawner" preserve="all" />
     <type fullname="Quantum.QPrototypeBoostArea" preserve="all" />
+    <type fullname="Quantum.QPrototypeOscillateRotation" preserve="all" />
     <type fullname="Quantum.QPrototypePlayerSpawner" preserve="all" />
     <type fullname="Quantum.QPrototypeStaticColliderLink" preserve="all" />
     <type fullname="Quantum.QPrototypeTeamBaseWallStaticColliderTag" preserve="all" />
     <type fullname="Quantum.QuantumDeterministicSessionConfigAsset" preserve="all" />
     <type fullname="Quantum.QuantumEntityPrototype" preserve="all" />
+    <type fullname="Quantum.QuantumEntityView" preserve="all" />
     <type fullname="Quantum.QuantumEntityViewUpdater" preserve="all" />
     <type fullname="Quantum.QuantumMapData" preserve="all" />
     <type fullname="Quantum.QuantumMapNavMeshUnity" preserve="all" />
     <type fullname="Quantum.QuantumMemoryStats" preserve="all" />
     <type fullname="Quantum.QuantumRunnerLocalDebug" preserve="all" />
     <type fullname="Quantum.QuantumStaticBoxCollider3D" preserve="all" />
+    <type fullname="Quantum.QuantumStaticCapsuleCollider3D" preserve="all" />
+    <type fullname="Quantum.QuantumStaticMeshCollider3D" preserve="all" />
     <type fullname="Quantum.QuantumStats" preserve="all" />
     <type fullname="Quantum.QuantumEntityPrototype/InitialNavMeshTargetInfo" preserve="nothing" serialized="true" />
     <type fullname="Quantum.QuantumEntityPrototype/NavMeshAvoidanceAgentInfo" preserve="nothing" serialized="true" />
@@ -95,6 +102,7 @@
     <type fullname="Quantum.QuantumRunnerLocalDebug/DynamicAssetDBSettings/InitialDynamicAssetsRequestedUnityEvent" preserve="nothing" serialized="true" />
     <type fullname="Quantum.QuantumSnapshotInterpolationTimer" preserve="nothing" serialized="true" />
     <type fullname="Quantum.QuantumStaticColliderSettings" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.QuantumEntityView/EntityUnityEvent" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="Tayx.Graphy, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="Graphy.Runtime.UI.G_SafeArea" preserve="all" />
@@ -163,11 +171,11 @@
     <type fullname="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData" preserve="all" />
     <type fullname="UnityEngine.Rendering.Universal.UniversalAdditionalLightData" preserve="all" />
     <type fullname="UnityEngine.Rendering.Universal.Vignette" preserve="all" />
+    <type fullname="UnityEngine.Rendering.Universal.TemporalAA/Settings" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Rendering.Universal.DepthOfFieldModeParameter" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Rendering.Universal.DownscaleParameter" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Rendering.Universal.HDRACESPresetParameter" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Rendering.Universal.NeutralRangeReductionModeParameter" preserve="nothing" serialized="true" />
-    <type fullname="UnityEngine.Rendering.Universal.TemporalAA/Settings" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Rendering.Universal.TonemappingModeParameter" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="Unity.ResourceManager, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" preserve="all">
@@ -185,17 +193,20 @@
     <type fullname="TMPro.FontAssetCreationSettings" preserve="nothing" serialized="true" />
     <type fullname="TMPro.KerningTable" preserve="nothing" serialized="true" />
     <type fullname="TMPro.TMP_Character" preserve="nothing" serialized="true" />
-    <type fullname="TMPro.TMP_FontFeatureTable" preserve="nothing" serialized="true" />
-    <type fullname="TMPro.TMP_FontWeightPair" preserve="nothing" serialized="true" />
-    <type fullname="TMPro.VertexGradient" preserve="nothing" serialized="true" />
     <type fullname="TMPro.TMP_Dropdown/DropdownEvent" preserve="nothing" serialized="true" />
     <type fullname="TMPro.TMP_Dropdown/OptionData" preserve="nothing" serialized="true" />
     <type fullname="TMPro.TMP_Dropdown/OptionDataList" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.TMP_FontFeatureTable" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.TMP_FontWeightPair" preserve="nothing" serialized="true" />
     <type fullname="TMPro.TMP_InputField/OnChangeEvent" preserve="nothing" serialized="true" />
     <type fullname="TMPro.TMP_InputField/SelectionEvent" preserve="nothing" serialized="true" />
     <type fullname="TMPro.TMP_InputField/SubmitEvent" preserve="nothing" serialized="true" />
     <type fullname="TMPro.TMP_InputField/TextSelectionEvent" preserve="nothing" serialized="true" />
     <type fullname="TMPro.TMP_InputField/TouchScreenKeyboardEvent" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.VertexGradient" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="UnityEngine.AIModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.AI.NavMeshObstacle" preserve="all" />
   </assembly>
   <assembly fullname="UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="UnityEngine.AnimationClip" preserve="all" />
@@ -230,9 +241,9 @@
     <type fullname="UnityEngine.Events.ArgumentCache" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Events.PersistentCallGroup" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Events.PersistentListenerMode" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Events.UnityEvent" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Events.UnityEvent`1" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.RectOffset" preserve="nothing" serialized="true" />
-    <type fullname="UnityEngine.Events.UnityEvent" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="UnityEngine.ParticleSystemModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="UnityEngine.ParticleSystem" preserve="all" />
@@ -240,6 +251,8 @@
   </assembly>
   <assembly fullname="UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="UnityEngine.BoxCollider" preserve="all" />
+    <type fullname="UnityEngine.CapsuleCollider" preserve="all" />
+    <type fullname="UnityEngine.MeshCollider" preserve="all" />
   </assembly>
   <assembly fullname="UnityEngine.TextRenderingModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="UnityEngine.Font" preserve="all" />
@@ -270,9 +283,9 @@
     <type fullname="UnityEngine.UI.FontData" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.UI.MaskableGraphic/CullStateChangedEvent" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.UI.Navigation" preserve="nothing" serialized="true" />
-    <type fullname="UnityEngine.UI.SpriteState" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.UI.ScrollRect/ScrollRectEvent" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.UI.Scrollbar/ScrollEvent" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UI.SpriteState" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.UI.Toggle/ToggleEvent" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="UnityEngine.UIModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
@@ -301,10 +314,13 @@
     <type fullname="Quantum.QEnum32`1" preserve="nothing" serialized="true" />
     <type fullname="Quantum.Shape2DConfig" preserve="nothing" serialized="true" />
     <type fullname="Quantum.Shape3DConfig" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.Shape3DConfig/CompoundShapeData3D" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="Quantum.Simulation">
+    <type fullname="Quantum.EasingType" preserve="nothing" serialized="true" />
     <type fullname="Quantum.Prototypes.BallSpawnerPrototype" preserve="nothing" serialized="true" />
     <type fullname="Quantum.Prototypes.BoostAreaPrototype" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.Prototypes.OscillateRotationPrototype" preserve="nothing" serialized="true" />
     <type fullname="Quantum.Prototypes.PlayerSpawnerPrototype" preserve="nothing" serialized="true" />
     <type fullname="Quantum.Prototypes.StaticColliderLinkPrototype" preserve="nothing" serialized="true" />
     <type fullname="Quantum.Prototypes.TeamBaseWallStaticColliderTagPrototype" preserve="nothing" serialized="true" />
