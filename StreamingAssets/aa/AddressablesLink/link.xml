@@ -70,11 +70,13 @@
     <type fullname="Quantum.PhotonServerSettings" preserve="all" />
     <type fullname="Quantum.QPrototypeBallSpawner" preserve="all" />
     <type fullname="Quantum.QPrototypeBoostArea" preserve="all" />
+    <type fullname="Quantum.QPrototypeOscillateRotation" preserve="all" />
     <type fullname="Quantum.QPrototypePlayerSpawner" preserve="all" />
     <type fullname="Quantum.QPrototypeStaticColliderLink" preserve="all" />
     <type fullname="Quantum.QPrototypeTeamBaseWallStaticColliderTag" preserve="all" />
     <type fullname="Quantum.QuantumDeterministicSessionConfigAsset" preserve="all" />
     <type fullname="Quantum.QuantumEntityPrototype" preserve="all" />
+    <type fullname="Quantum.QuantumEntityView" preserve="all" />
     <type fullname="Quantum.QuantumEntityViewUpdater" preserve="all" />
     <type fullname="Quantum.QuantumMapData" preserve="all" />
     <type fullname="Quantum.QuantumMapNavMeshUnity" preserve="all" />
@@ -100,6 +102,7 @@
     <type fullname="Quantum.QuantumRunnerLocalDebug/DynamicAssetDBSettings/InitialDynamicAssetsRequestedUnityEvent" preserve="nothing" serialized="true" />
     <type fullname="Quantum.QuantumSnapshotInterpolationTimer" preserve="nothing" serialized="true" />
     <type fullname="Quantum.QuantumStaticColliderSettings" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.QuantumEntityView/EntityUnityEvent" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="Tayx.Graphy, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="Graphy.Runtime.UI.G_SafeArea" preserve="all" />
@@ -311,10 +314,13 @@
     <type fullname="Quantum.QEnum32`1" preserve="nothing" serialized="true" />
     <type fullname="Quantum.Shape2DConfig" preserve="nothing" serialized="true" />
     <type fullname="Quantum.Shape3DConfig" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.Shape3DConfig/CompoundShapeData3D" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="Quantum.Simulation">
+    <type fullname="Quantum.EasingType" preserve="nothing" serialized="true" />
     <type fullname="Quantum.Prototypes.BallSpawnerPrototype" preserve="nothing" serialized="true" />
     <type fullname="Quantum.Prototypes.BoostAreaPrototype" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.Prototypes.OscillateRotationPrototype" preserve="nothing" serialized="true" />
     <type fullname="Quantum.Prototypes.PlayerSpawnerPrototype" preserve="nothing" serialized="true" />
     <type fullname="Quantum.Prototypes.StaticColliderLinkPrototype" preserve="nothing" serialized="true" />
     <type fullname="Quantum.Prototypes.TeamBaseWallStaticColliderTagPrototype" preserve="nothing" serialized="true" />
