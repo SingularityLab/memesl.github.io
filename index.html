@@ -132,7 +132,6 @@
     </script>
     <script>
         let isFullscreen = false;
-
         function checkOrientation() {
             const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
             const isPortrait = window.innerHeight > window.innerWidth;
@@ -146,52 +145,49 @@
                 container.style.display = "block";
             }
         }
-
-        function toggleTelegramFullscreen() {
+        function toggleFullscreen() {
             if (window.Telegram && window.Telegram.WebApp) {
-                const webApp = window.Telegram.WebApp;
-                if (isFullscreen) {
-                    webApp.closeFullscreen();
-                    document.exitFullscreen?.();
-                    isFullscreen = false;
-                } else {
-                    webApp.requestFullscreen();
-                    document.documentElement.requestFullscreen?.().catch(err => {
-                        console.error(`Fullscreen error: ${err.message}`);
-                    });
-                    isFullscreen = true;
+                try {
+                    const webApp = window.Telegram.WebApp;
+                    if (isFullscreen) {
+                        webApp.closeFullscreen?.();
+                        if (document.fullscreenElement) {
+                            document.exitFullscreen();
+                        }
+                        isFullscreen = false;
+                    } else {
+                        webApp.requestFullscreen?.();
+                        if (!document.fullscreenElement) {
+                            document.documentElement.requestFullscreen().catch(console.error);
+                        }
+                        isFullscreen = true;
+                    }
+                } catch (e) {
+                    console.error(e);
                 }
             } else {
                 if (isFullscreen) {
                     document.exitFullscreen();
                     isFullscreen = false;
                 } else {
-                    document.documentElement.requestFullscreen().catch(err => {
-                        console.error(`Fullscreen error: ${err.message}`);
-                    });
+                    document.documentElement.requestFullscreen().catch(console.error);
                     isFullscreen = true;
                 }
             }
         }
-
         document.addEventListener("fullscreenchange", () => {
             isFullscreen = !!document.fullscreenElement;
         });
-
         window.addEventListener("load", function () {
             if (window.Telegram && window.Telegram.WebApp) {
                 const webApp = window.Telegram.WebApp;
                 webApp.ready();
-                webApp.closeFullscreen();
-                isFullscreen = false;
+                webApp.closeFullscreen?.();
             }
-
             checkOrientation();
             window.addEventListener("resize", checkOrientation);
             window.addEventListener("orientationchange", checkOrientation);
-
-            const fullscreenButton = document.getElementById("fullscreen-button");
-            fullscreenButton.addEventListener("click", toggleTelegramFullscreen);
+            document.getElementById("fullscreen-button").addEventListener("click", toggleFullscreen);
         });
     </script>
 </body>
