@@ -149,7 +149,9 @@
             if (window.Telegram && window.Telegram.WebApp) {
                 const webApp = window.Telegram.WebApp;
                 if (webApp.isFullscreen) {
-                    webApp.closeFullscreen();
+                    setTimeout(function () {
+                        webApp.closeFullscreen();
+                    }, 0);
                 } else {
                     webApp.requestFullscreen();
                 }
