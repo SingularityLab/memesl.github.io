@@ -131,6 +131,8 @@
         document.body.appendChild(script);
     </script>
     <script>
+        let isFullscreen = false;
+
         function checkOrientation() {
             const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
             const isPortrait = window.innerHeight > window.innerWidth;
@@ -148,31 +150,40 @@
         function toggleTelegramFullscreen() {
             if (window.Telegram && window.Telegram.WebApp) {
                 const webApp = window.Telegram.WebApp;
-                if (webApp.isFullscreen) {
-                    setTimeout(function () {
-                        webApp.closeFullscreen();
-                    }, 0);
+                if (isFullscreen) {
+                    webApp.closeFullscreen();
+                    document.exitFullscreen?.();
+                    isFullscreen = false;
                 } else {
                     webApp.requestFullscreen();
+                    document.documentElement.requestFullscreen?.().catch(err => {
+                        console.error(`Fullscreen error: ${err.message}`);
+                    });
+                    isFullscreen = true;
                 }
             } else {
-                if (document.fullscreenElement) {
+                if (isFullscreen) {
                     document.exitFullscreen();
+                    isFullscreen = false;
                 } else {
                     document.documentElement.requestFullscreen().catch(err => {
-                        console.error(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+                        console.error(`Fullscreen error: ${err.message}`);
                     });
+                    isFullscreen = true;
                 }
             }
         }
+
+        document.addEventListener("fullscreenchange", () => {
+            isFullscreen = !!document.fullscreenElement;
+        });
 
         window.addEventListener("load", function () {
             if (window.Telegram && window.Telegram.WebApp) {
                 const webApp = window.Telegram.WebApp;
                 webApp.ready();
-                if (webApp.isFullscreen) {
-                    webApp.closeFullscreen();
-                }
+                webApp.closeFullscreen();
+                isFullscreen = false;
             }
 
             checkOrientation();
