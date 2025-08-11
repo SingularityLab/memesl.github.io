@@ -90,7 +90,7 @@
             if (type == 'error') div.style = 'background: red; padding: 10px;';
             else {
                 if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
-                setTimeout(function() {
+                setTimeout(function () {
                     warningBanner.removeChild(div);
                     updateBannerVisibility();
                 }, 5000);
@@ -144,6 +144,7 @@
                 container.style.display = "block";
             }
         }
+
         function toggleTelegramFullscreen() {
             if (window.Telegram && window.Telegram.WebApp) {
                 const webApp = window.Telegram.WebApp;
@@ -162,11 +163,23 @@
                 }
             }
         }
-        window.addEventListener("load", checkOrientation);
-        window.addEventListener("resize", checkOrientation);
-        window.addEventListener("orientationchange", checkOrientation);
-        const fullscreenButton = document.getElementById("fullscreen-button");
-        fullscreenButton.addEventListener("click", toggleTelegramFullscreen);
+
+        window.addEventListener("load", function () {
+            if (window.Telegram && window.Telegram.WebApp) {
+                const webApp = window.Telegram.WebApp;
+                webApp.ready();
+                if (webApp.isFullscreen) {
+                    webApp.closeFullscreen();
+                }
+            }
+
+            checkOrientation();
+            window.addEventListener("resize", checkOrientation);
+            window.addEventListener("orientationchange", checkOrientation);
+
+            const fullscreenButton = document.getElementById("fullscreen-button");
+            fullscreenButton.addEventListener("click", toggleTelegramFullscreen);
+        });
     </script>
 </body>
 </html>
