@@ -18,9 +18,6 @@
             overflow: hidden;
             background-color: var(--tg-theme-bg-color, #000);
             color: var(--tg-theme-text-color, #fff);
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
 
         #unity-container {
@@ -32,8 +29,6 @@
         #unity-canvas {
             width: 100%;
             height: 100%;
-            display: block;
-            background: #000;
         }
 
         #fullscreen-button {
@@ -70,7 +65,7 @@
 <body>
     <div id="fullscreen-button"></div>
     <div id="unity-container">
-        <canvas id="unity-canvas" width=1280 height=720 tabindex="-1"></canvas>
+        <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
         <div id="unity-loading-bar">
             <div id="unity-logo"></div>
             <div id="unity-progress-bar-empty">
@@ -140,24 +135,6 @@
         const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
         const tg = window.Telegram.WebApp;
 
-        function setAspectRatio() {
-            const container = document.getElementById("unity-container");
-            const canvas = document.getElementById("unity-canvas");
-            const containerWidth = container.clientWidth;
-            const containerHeight = container.clientHeight;
-
-            let newWidth = containerWidth;
-            let newHeight = containerWidth * (9 / 16);
-
-            if (newHeight > containerHeight) {
-                newHeight = containerHeight;
-                newWidth = containerHeight * (16 / 9);
-            }
-
-            canvas.style.width = newWidth + 'px';
-            canvas.style.height = newHeight + 'px';
-        }
-
         function checkOrientation() {
             if (!isMobile) return;
 
@@ -180,6 +157,7 @@
         function initializeApp() {
             if (tg) {
                 tg.ready();
+                tg.expand();
 
                 if (isMobile) {
                     checkOrientation();
@@ -187,14 +165,12 @@
                         tg.requestFullscreen();
                     }
                     tg.enableVerticalSwipes();
-                } else {
-                    tg.expand();
-                    setAspectRatio();
-                    window.addEventListener("resize", setAspectRatio);
                 }
             }
 
-            window.addEventListener("orientationchange", checkOrientation);
+            if (isMobile) {
+                window.addEventListener("orientationchange", checkOrientation);
+            }
         }
 
         function toggleTelegramFullscreen() {
