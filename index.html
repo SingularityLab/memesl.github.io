@@ -159,7 +159,6 @@
                 tg.ready();
                 if (isMobile) {
                     tg.expand();
-                    checkOrientation();
                     if (tg.isVersionAtLeast('8.0')) {
                         tg.requestFullscreen();
                     }
@@ -184,17 +183,18 @@
             }
         }
 
+        if (isMobile) {
+            window.addEventListener('load', checkOrientation);
+            window.addEventListener('resize', checkOrientation);
+            window.addEventListener('orientationchange', checkOrientation);
+        }
+
         const initInterval = setInterval(() => {
             if (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.initData) {
                 clearInterval(initInterval);
                 initializeApp();
             }
         }, 100);
-
-        if (isMobile) {
-            window.addEventListener("resize", checkOrientation);
-            window.addEventListener("orientationchange", checkOrientation);
-        }
 
         const fullscreenButton = document.getElementById("fullscreen-button");
         fullscreenButton.addEventListener("click", toggleTelegramFullscreen);
