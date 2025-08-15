@@ -13,6 +13,7 @@
     <type fullname="LocalPlayerAccess" preserve="all" />
     <type fullname="LocalPlayersConfig" preserve="all" />
     <type fullname="LocalPlayersManager" preserve="all" />
+    <type fullname="PickupView" preserve="all" />
     <type fullname="PlayersManager" preserve="all" />
     <type fullname="RoomStateManager" preserve="all" />
     <type fullname="TextureScroller" preserve="all" />
@@ -23,6 +24,11 @@
   </assembly>
   <assembly fullname="Assembly-CSharp-firstpass, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="ResilientOnScreenStick" preserve="all" />
+  </assembly>
+  <assembly fullname="CFXRRuntime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="CartoonFX.CFXR_Effect" preserve="all" />
+    <type fullname="CartoonFX.CFXR_Effect/AnimatedLight" preserve="nothing" serialized="true" />
+    <type fullname="CartoonFX.CFXR_Effect/CameraShake" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="Cinemachine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="Cinemachine.CinemachineBrain" preserve="all" />
@@ -72,6 +78,7 @@
     <type fullname="Quantum.PhotonServerSettings" preserve="all" />
     <type fullname="Quantum.QPrototypeBallSpawner" preserve="all" />
     <type fullname="Quantum.QPrototypeBoostArea" preserve="all" />
+    <type fullname="Quantum.QPrototypePickup" preserve="all" />
     <type fullname="Quantum.QPrototypePlayerSpawner" preserve="all" />
     <type fullname="Quantum.QPrototypeStaticColliderLink" preserve="all" />
     <type fullname="Quantum.QPrototypeTeamBaseWallStaticColliderTag" preserve="all" />
@@ -96,6 +103,7 @@
     <type fullname="Quantum.QuantumEntityPrototype/PhysicsColliderGeneric" preserve="nothing" serialized="true" />
     <type fullname="Quantum.QuantumEntityPrototype/SourceShapeGenericSettings" preserve="nothing" serialized="true" />
     <type fullname="Quantum.QuantumEntityPrototype/Transform2DVerticalInfo" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.QuantumEntityView/EntityUnityEvent" preserve="nothing" serialized="true" />
     <type fullname="Quantum.QuantumMapDataBakeFlags" preserve="nothing" serialized="true" />
     <type fullname="Quantum.QuantumNavMesh/ImportSettings" preserve="nothing" serialized="true" />
     <type fullname="Quantum.QuantumRunnerLocalDebug/DynamicAssetDBSettings" preserve="nothing" serialized="true" />
@@ -204,6 +212,9 @@
     <type fullname="TMPro.TMP_InputField/TextSelectionEvent" preserve="nothing" serialized="true" />
     <type fullname="TMPro.TMP_InputField/TouchScreenKeyboardEvent" preserve="nothing" serialized="true" />
     <type fullname="TMPro.VertexGradient" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.GlyphAnchorPoint" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.MarkPositionAdjustment" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.MarkToBaseAdjustmentRecord" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="UnityEngine.AIModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="UnityEngine.AI.NavMeshObstacle" preserve="all" />
@@ -278,6 +289,7 @@
     <type fullname="UnityEngine.UI.Scrollbar" preserve="all" />
     <type fullname="UnityEngine.UI.ScrollRect" preserve="all" />
     <type fullname="UnityEngine.UI.Shadow" preserve="all" />
+    <type fullname="UnityEngine.UI.Slider" preserve="all" />
     <type fullname="UnityEngine.UI.Text" preserve="all" />
     <type fullname="UnityEngine.UI.Toggle" preserve="all" />
     <type fullname="UnityEngine.UI.ToggleGroup" preserve="all" />
@@ -290,6 +302,7 @@
     <type fullname="UnityEngine.UI.Navigation" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.UI.ScrollRect/ScrollRectEvent" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.UI.Scrollbar/ScrollEvent" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UI.Slider/SliderEvent" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.UI.SpriteState" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.UI.Toggle/ToggleEvent" preserve="nothing" serialized="true" />
   </assembly>
@@ -317,12 +330,15 @@
     <type fullname="Quantum.InstantReplaySettings" preserve="nothing" serialized="true" />
     <type fullname="Quantum.Prototypes.PhysicsBodyInertiaMode" preserve="nothing" serialized="true" />
     <type fullname="Quantum.QEnum32`1" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.QEnum8`1" preserve="nothing" serialized="true" />
     <type fullname="Quantum.Shape2DConfig" preserve="nothing" serialized="true" />
     <type fullname="Quantum.Shape3DConfig" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="Quantum.Simulation">
+    <type fullname="Quantum.PickupType" preserve="nothing" serialized="true" />
     <type fullname="Quantum.Prototypes.BallSpawnerPrototype" preserve="nothing" serialized="true" />
     <type fullname="Quantum.Prototypes.BoostAreaPrototype" preserve="nothing" serialized="true" />
+    <type fullname="Quantum.Prototypes.PickupPrototype" preserve="nothing" serialized="true" />
     <type fullname="Quantum.Prototypes.PlayerSpawnerPrototype" preserve="nothing" serialized="true" />
     <type fullname="Quantum.Prototypes.StaticColliderLinkPrototype" preserve="nothing" serialized="true" />
     <type fullname="Quantum.Prototypes.TeamBaseWallStaticColliderTagPrototype" preserve="nothing" serialized="true" />
