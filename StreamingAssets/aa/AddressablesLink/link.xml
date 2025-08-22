@@ -50,6 +50,8 @@
   <assembly fullname="Quantum.Menu, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="CharacterSelectUI" preserve="all" />
     <type fullname="LocalPlayerCountManager" preserve="all" />
+    <type fullname="Quantum.EventInt" preserve="all" />
+    <type fullname="Quantum.EventStringInt" preserve="all" />
     <type fullname="Quantum.Menu.QuantumMenuConfig" preserve="all" />
     <type fullname="Quantum.Menu.QuantumMenuFpsAvgCounter" preserve="all" />
     <type fullname="Quantum.Menu.QuantumMenuImageFitter" preserve="all" />
