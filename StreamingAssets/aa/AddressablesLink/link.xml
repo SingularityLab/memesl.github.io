@@ -50,8 +50,8 @@
     <type fullname="CharacterSelectUI" preserve="all" />
     <type fullname="DraggableButton" preserve="all" />
     <type fullname="LocalPlayerCountManager" preserve="all" />
-    <type fullname="Quantum.EventInt" preserve="all" />
-    <type fullname="Quantum.EventStringInt" preserve="all" />
+    <type fullname="Quantum.EventString" preserve="all" />
+    <type fullname="Quantum.EventT" preserve="all" />
     <type fullname="Quantum.Menu.QuantumMenuConfig" preserve="all" />
     <type fullname="Quantum.Menu.QuantumMenuFpsAvgCounter" preserve="all" />
     <type fullname="Quantum.Menu.QuantumMenuImageFitter" preserve="all" />
