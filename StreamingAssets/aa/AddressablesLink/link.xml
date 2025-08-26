@@ -2,7 +2,6 @@
   <assembly fullname="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="BaseWallArea" preserve="all" />
     <type fullname="CameraController" preserve="all" />
-    <type fullname="DecalIndicator" preserve="all" />
     <type fullname="EnvironmentController" preserve="all" />
     <type fullname="EventSystemSingleton" preserve="all" />
     <type fullname="ithappy.OscillatePosition" preserve="all" />
@@ -23,7 +22,7 @@
     <type fullname="UIPlayerIndicator" preserve="all" />
   </assembly>
   <assembly fullname="Assembly-CSharp-firstpass, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
-    <type fullname="ResilientOnScreenStick" preserve="all" />
+    <type fullname="DynamicJoystickArea" preserve="all" />
   </assembly>
   <assembly fullname="CFXRRuntime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="CartoonFX.CFXR_Effect" preserve="all" />
@@ -49,6 +48,7 @@
   </assembly>
   <assembly fullname="Quantum.Menu, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="CharacterSelectUI" preserve="all" />
+    <type fullname="DraggableButton" preserve="all" />
     <type fullname="LocalPlayerCountManager" preserve="all" />
     <type fullname="Quantum.EventInt" preserve="all" />
     <type fullname="Quantum.EventStringInt" preserve="all" />
@@ -174,7 +174,6 @@
     <type fullname="UnityEngine.Rendering.Universal.ChromaticAberration" preserve="all" />
     <type fullname="UnityEngine.Rendering.Universal.ColorAdjustments" preserve="all" />
     <type fullname="UnityEngine.Rendering.Universal.ColorCurves" preserve="all" />
-    <type fullname="UnityEngine.Rendering.Universal.DecalProjector" preserve="all" />
     <type fullname="UnityEngine.Rendering.Universal.DepthOfField" preserve="all" />
     <type fullname="UnityEngine.Rendering.Universal.LensDistortion" preserve="all" />
     <type fullname="UnityEngine.Rendering.Universal.Tonemapping" preserve="all" />
@@ -260,6 +259,7 @@
     <type fullname="UnityEngine.Events.UnityEvent" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Events.UnityEvent`1" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.RectOffset" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Vector2" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="UnityEngine.ParticleSystemModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="UnityEngine.ParticleSystem" preserve="all" />
