@@ -20,6 +20,7 @@
     <type fullname="UIFeedElement" preserve="all" />
     <type fullname="UIGameplay" preserve="all" />
     <type fullname="UIPlayerIndicator" preserve="all" />
+    <type fullname="UIVersionViewer" preserve="all" />
   </assembly>
   <assembly fullname="Assembly-CSharp-firstpass, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="DynamicJoystickArea" preserve="all" />
