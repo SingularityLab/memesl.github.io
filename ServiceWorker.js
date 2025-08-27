@@ -2,7 +2,7 @@ const cacheName = "DefaultCompany-Quantum-Sports-Arena-Brawler-0.1.2";
 const contentToCache = [
     "Build/f9d95a9bbb45bb62df9d35dbb68a8296.loader.js",
     "Build/7be99cb715c5b310a7a96a4a6c5c59b0.framework.js",
-    "Build/db71cfc2f1fb5b3b36cacaecae0d67f7.data",
+    "Build/1b3e942f7d0a0d32bb65b14f6aa62199.data",
     "Build/15feb4504c77229e3104701b2bc345e5.wasm",
     "TemplateData/style.css"
 
