@@ -109,16 +109,16 @@
             updateBannerVisibility();
         }
         var buildUrl = "Build";
-        var loaderUrl = buildUrl + "/3aa5805e117c3e256a14b7f0c95b80c5.loader.js";
+        var loaderUrl = buildUrl + "/473524b7f444eaf46c39364ea2a0f638.loader.js";
         var config = {
             arguments: [],
-            dataUrl: buildUrl + "/a8d5fa9cf5ca7ab0d9df9bf694acee3f.data",
+            dataUrl: buildUrl + "/03e08ee28f4d7c927593f4d7c48a850f.data",
             frameworkUrl: buildUrl + "/7be99cb715c5b310a7a96a4a6c5c59b0.framework.js",
-            codeUrl: buildUrl + "/11b637dcc9036a2a8f2b21e6a63d5993.wasm",
+            codeUrl: buildUrl + "/753dd1146428e37d5bf22070ee815b02.wasm",
             streamingAssetsUrl: "StreamingAssets",
             companyName: "DefaultCompany",
             productName: "Quantum-Sports-Arena-Brawler",
-            productVersion: "0.2.5",
+            productVersion: "0.2.6",
             showBanner: unityShowBanner,
         };
         loadingBar.style.display = "block";
@@ -129,11 +129,41 @@
                 progressBarFull.style.width = 100 * progress + "%";
             }).then((unityInstance) => {
                 loadingBar.style.display = "none";
-                const interval = setInterval(() => {
+                const interval = setInterval(async () => {
                     if (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.initData) {
                         clearInterval(interval);
+                        
+                        const user = Telegram.WebApp.initDataUnsafe.user;
                         const inviteCode = window.Telegram.WebApp.initDataUnsafe.start_param || "";
-                        unityInstance.SendMessage('TelegramBridge', 'OnTelegramAPIReady', inviteCode);
+
+                        if (!user || !user.photo_url) {
+                            console.log("User has no profile photo");
+                            unityInstance.SendMessage('TelegramBridge', 'OnTelegramAPIReady', inviteCode, "");
+                            return;
+                        }
+
+                        try {
+                            const response = await fetch(user.photo_url);
+                            const blob = await response.blob();
+                            const reader = new FileReader();
+                            
+                            reader.onloadend = function() {
+                                unityInstance.SendMessage('TelegramBridge', 'OnTelegramAPIReady', inviteCode, reader.result);
+                            }
+                            
+                            reader.readAsDataURL(blob); // Convert to Base64
+                        } catch (error) {
+                            console.error("Error fetching Telegram photo:", error);
+                            unityInstance.SendMessage('TelegramBridge', 'OnTelegramAPIReady', inviteCode, "");
+                        }
+                        
+                        // unityInstance.SendMessage('TelegramBridge', 'OnTelegramAPIReady', inviteCode);
+                    }
+                    else
+                    {
+                        console.error("Telegram WebApp API not available");
+                        unityInstance.SendMessage(callbackObjectName, callbackMethodName, "","");
+                        return;
                     }
                 }, 100);
             }).catch((message) => {
