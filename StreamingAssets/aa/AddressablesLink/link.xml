@@ -79,7 +79,6 @@
   </assembly>
   <assembly fullname="Quantum.Unity, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="Quantum.PhotonServerSettings" preserve="all" />
-    <type fullname="Quantum.QPrototypeBallSpawner" preserve="all" />
     <type fullname="Quantum.QPrototypeBoostArea" preserve="all" />
     <type fullname="Quantum.QPrototypePickup" preserve="all" />
     <type fullname="Quantum.QPrototypePlayerSpawner" preserve="all" />
@@ -90,12 +89,10 @@
     <type fullname="Quantum.QuantumEntityViewUpdater" preserve="all" />
     <type fullname="Quantum.QuantumMapData" preserve="all" />
     <type fullname="Quantum.QuantumMapNavMeshUnity" preserve="all" />
-    <type fullname="Quantum.QuantumMemoryStats" preserve="all" />
     <type fullname="Quantum.QuantumRunnerLocalDebug" preserve="all" />
     <type fullname="Quantum.QuantumStaticBoxCollider3D" preserve="all" />
     <type fullname="Quantum.QuantumStaticCapsuleCollider3D" preserve="all" />
     <type fullname="Quantum.QuantumStaticMeshCollider3D" preserve="all" />
-    <type fullname="Quantum.QuantumStats" preserve="all" />
     <type fullname="Quantum.QuantumEntityPrototype/InitialNavMeshTargetInfo" preserve="nothing" serialized="true" />
     <type fullname="Quantum.QuantumEntityPrototype/NavMeshAvoidanceAgentInfo" preserve="nothing" serialized="true" />
     <type fullname="Quantum.QuantumEntityPrototype/NavMeshPathfinderInfo" preserve="nothing" serialized="true" />
@@ -287,7 +284,6 @@
     <type fullname="UnityEngine.UI.Image" preserve="all" />
     <type fullname="UnityEngine.UI.LayoutElement" preserve="all" />
     <type fullname="UnityEngine.UI.Mask" preserve="all" />
-    <type fullname="UnityEngine.UI.Outline" preserve="all" />
     <type fullname="UnityEngine.UI.RawImage" preserve="all" />
     <type fullname="UnityEngine.UI.RectMask2D" preserve="all" />
     <type fullname="UnityEngine.UI.Scrollbar" preserve="all" />
@@ -340,7 +336,6 @@
   </assembly>
   <assembly fullname="Quantum.Simulation">
     <type fullname="Quantum.PickupType" preserve="nothing" serialized="true" />
-    <type fullname="Quantum.Prototypes.BallSpawnerPrototype" preserve="nothing" serialized="true" />
     <type fullname="Quantum.Prototypes.BoostAreaPrototype" preserve="nothing" serialized="true" />
     <type fullname="Quantum.Prototypes.PickupPrototype" preserve="nothing" serialized="true" />
     <type fullname="Quantum.Prototypes.PlayerSpawnerPrototype" preserve="nothing" serialized="true" />
