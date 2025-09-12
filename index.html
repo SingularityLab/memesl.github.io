@@ -2,6 +2,8 @@
 <html lang="en-us">
 <head>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-firestore-compat.js"></script>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="Cache-Control" content="no-store, must-revalidate">
@@ -107,17 +109,32 @@
             }
             updateBannerVisibility();
         }
+
+        // Your Firebase configuration
+        const firebaseConfig = {
+            apiKey: "/AIzaSyCK4jQezf4XXFkByJLbS2Awt3vHtyDl-jE",
+            authDomain: "/justtest-eaf59.firebaseapp.com",
+            projectId: "/justtest-eaf59",
+            storageBucket: "/justtest-eaf59.firebasestorage.app",
+            messagingSenderId: "/437328053649",
+            appId: "/437328053649:web:7e8d8f773eb13b82870630"
+        };
+
+        // Initialize Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const db = app.database();
+        
         var buildUrl = "Build";
-        var loaderUrl = buildUrl + "/532db3946ae09dfa351f62b92d6648ff.loader.js";
+        var loaderUrl = buildUrl + "/94ff032a69f9ca89d4bc22e25f4a1a4c.loader.js";
         var config = {
             arguments: [],
-            dataUrl: buildUrl + "/72b589d214545358783d8e081f137bc8.data.br",
-            frameworkUrl: buildUrl + "/eb6a69bfe06b71a7ca22136eb244dc56.framework.js.br",
-            codeUrl: buildUrl + "/65c64cd81e9947d019c9d7c29d1bce35.wasm.br",
+            dataUrl: buildUrl + "/a71cae1993bc0390bf7d34127f228288.data.br",
+            frameworkUrl: buildUrl + "/d84e92140b5f428cacbf9e222e5235c5.framework.js.br",
+            codeUrl: buildUrl + "/6f95f59127f0ca766c5b41b214a630ac.wasm.br",
             streamingAssetsUrl: "StreamingAssets",
             companyName: "DefaultCompany",
             productName: "Quantum-Sports-Arena-Brawler",
-            productVersion: "0.5.1",
+            productVersion: "0.5.3",
             showBanner: unityShowBanner,
         };
         loadingBar.style.display = "block";
