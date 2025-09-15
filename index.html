@@ -93,7 +93,7 @@
         var loadingBar = document.querySelector("#unity-loading-bar");
         var progressBarFull = document.querySelector("#unity-progress-bar-full");
         var warningBanner = document.querySelector("#unity-warning");
-        function unityShowBanner(msg, type) {
+        async function unityShowBanner(msg, type) {
             function updateBannerVisibility() {
                 warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
             }
@@ -126,7 +126,8 @@
         const app = firebase.initializeApp(firebaseConfig);
         const db = app.firestore();
         const auth = app.auth();
-        auth.signInAnonymously().catch((error) => { console.warn(error.code,error.message)});
+        await auth.signInAnonymously()
+            .catch((error) => { console.warn(error.code,error.message)});
         
         var buildUrl = "Build";
         var loaderUrl = buildUrl + "/05ff043cd97c238aebbd482232f0755d.loader.js";
