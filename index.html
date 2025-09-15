@@ -4,7 +4,6 @@
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/12.2.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/12.2.1/firebase-auth-compat.js"></script>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="Cache-Control" content="no-store, must-revalidate">
@@ -132,13 +131,13 @@
                 var loaderUrl = buildUrl + "/05ff043cd97c238aebbd482232f0755d.loader.js";
                 var config = {
                     arguments: [],
-                    dataUrl: buildUrl + "/083941d9d259322c0837182ecb7517af.data.br",
+                    dataUrl: buildUrl + "/18700d02c7c6a16620529b2ac7c5d587.data.br",
                     frameworkUrl: buildUrl + "/c6ee81f58b50272f9d434576690574f8.framework.js.br",
                     codeUrl: buildUrl + "/b67c46e778e55c24652ca8dc7b9c12e7.wasm.br",
                     streamingAssetsUrl: "StreamingAssets",
                     companyName: "DefaultCompany",
                     productName: "Quantum-Sports-Arena-Brawler",
-                    productVersion: "0.8.0",
+                    productVersion: "0.8.1",
                     showBanner: unityShowBanner,
                 };
                 loadingBar.style.display = "block";
@@ -162,7 +161,7 @@
                 };
                 document.body.appendChild(script);
             })
-            .catch((error) => { console.warn(error.code,error.message)});
+            .catch((error) => alert(error.code, error.message));
     </script>
     <script>
         const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
