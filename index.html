@@ -93,7 +93,7 @@
         var loadingBar = document.querySelector("#unity-loading-bar");
         var progressBarFull = document.querySelector("#unity-progress-bar-full");
         var warningBanner = document.querySelector("#unity-warning");
-        async function unityShowBanner(msg, type) {
+        function unityShowBanner(msg, type) {
             function updateBannerVisibility() {
                 warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
             }
@@ -126,42 +126,43 @@
         const app = firebase.initializeApp(firebaseConfig);
         const db = app.firestore();
         const auth = app.auth();
-        await auth.signInAnonymously()
+        auth.signInAnonymously()
+            .then(() => {
+                var buildUrl = "Build";
+                var loaderUrl = buildUrl + "/05ff043cd97c238aebbd482232f0755d.loader.js";
+                var config = {
+                    arguments: [],
+                    dataUrl: buildUrl + "/083941d9d259322c0837182ecb7517af.data.br",
+                    frameworkUrl: buildUrl + "/c6ee81f58b50272f9d434576690574f8.framework.js.br",
+                    codeUrl: buildUrl + "/b67c46e778e55c24652ca8dc7b9c12e7.wasm.br",
+                    streamingAssetsUrl: "StreamingAssets",
+                    companyName: "DefaultCompany",
+                    productName: "Quantum-Sports-Arena-Brawler",
+                    productVersion: "0.8.0",
+                    showBanner: unityShowBanner,
+                };
+                loadingBar.style.display = "block";
+                var script = document.createElement("script");
+                script.src = loaderUrl;
+                script.onload = () => {
+                    createUnityInstance(canvas, config, (progress) => {
+                        progressBarFull.style.width = 100 * progress + "%";
+                    }).then((unityInstance) => {
+                        loadingBar.style.display = "none";
+                        const interval = setInterval(() => {
+                            if (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.initData) {
+                                clearInterval(interval);
+                                const inviteCode = window.Telegram.WebApp.initDataUnsafe.start_param || "";
+                                unityInstance.SendMessage('TelegramBridge', 'OnTelegramAPIReady', inviteCode);
+                            }
+                        }, 100);
+                    }).catch((message) => {
+                        alert(message);
+                    });
+                };
+                document.body.appendChild(script);
+            })
             .catch((error) => { console.warn(error.code,error.message)});
-        
-        var buildUrl = "Build";
-        var loaderUrl = buildUrl + "/05ff043cd97c238aebbd482232f0755d.loader.js";
-        var config = {
-            arguments: [],
-            dataUrl: buildUrl + "/083941d9d259322c0837182ecb7517af.data.br",
-            frameworkUrl: buildUrl + "/c6ee81f58b50272f9d434576690574f8.framework.js.br",
-            codeUrl: buildUrl + "/b67c46e778e55c24652ca8dc7b9c12e7.wasm.br",
-            streamingAssetsUrl: "StreamingAssets",
-            companyName: "DefaultCompany",
-            productName: "Quantum-Sports-Arena-Brawler",
-            productVersion: "0.8.0",
-            showBanner: unityShowBanner,
-        };
-        loadingBar.style.display = "block";
-        var script = document.createElement("script");
-        script.src = loaderUrl;
-        script.onload = () => {
-            createUnityInstance(canvas, config, (progress) => {
-                progressBarFull.style.width = 100 * progress + "%";
-            }).then((unityInstance) => {
-                loadingBar.style.display = "none";
-                const interval = setInterval(() => {
-                    if (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.initData) {
-                        clearInterval(interval);
-                        const inviteCode = window.Telegram.WebApp.initDataUnsafe.start_param || "";
-                        unityInstance.SendMessage('TelegramBridge', 'OnTelegramAPIReady', inviteCode);
-                    }
-                }, 100);
-            }).catch((message) => {
-                alert(message);
-            });
-        };
-        document.body.appendChild(script);
     </script>
     <script>
         const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
