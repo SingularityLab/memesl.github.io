@@ -125,7 +125,7 @@
         // Initialize Firebase
         const app = firebase.initializeApp(firebaseConfig);
         const db = app.firestore();
-        const auth = app.auth().signInAnonymously();
+        const auth = app.auth().signInAnonymously().catch((error) => { console.warn(error.code,error.message)});
         
         var buildUrl = "Build";
         var loaderUrl = buildUrl + "/05ff043cd97c238aebbd482232f0755d.loader.js";
