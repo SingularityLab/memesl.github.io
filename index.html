@@ -37,20 +37,6 @@
             height: 100%;
         }
 
-        #fullscreen-button {
-            position: fixed;
-            top: 55px;
-            left: 15px;
-            width: 20px;
-            height: 20px;
-            background: url('TemplateData/fullscreen-icon.png') center / contain no-repeat;
-            background-color: rgba(0, 0, 0, 0.5);
-            border: 1px solid white;
-            border-radius: 5px;
-            cursor: pointer;
-            z-index: 100;
-        }
-
         #rotate-message {
             position: fixed;
             top: 0;
@@ -74,7 +60,6 @@
     </style>
 </head>
 <body>
-    <div id="fullscreen-button"></div>
     <div id="unity-container">
         <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
         <div id="unity-loading-bar">
@@ -132,7 +117,7 @@
                 var loaderUrl = buildUrl + "/21d99d7bcfbc688aa99c8e0764a2aaa7.loader.js";
                 var config = {
                     arguments: [],
-                    dataUrl: buildUrl + "/64c4510b721cf73a33d156fdba47498f.data.br",
+                    dataUrl: buildUrl + "/3b42797d21d4888287aa2c1ebb7138fd.data.br",
                     frameworkUrl: buildUrl + "/c6ee81f58b50272f9d434576690574f8.framework.js.br",
                     codeUrl: buildUrl + "/95d38152183de700a59a2c68ad7f917f.wasm.br",
                     streamingAssetsUrl: "StreamingAssets",
@@ -225,9 +210,6 @@
                 initializeApp();
             }
         }, 100);
-
-        const fullscreenButton = document.getElementById("fullscreen-button");
-        fullscreenButton.addEventListener("click", toggleTelegramFullscreen);
 
     </script>
 </body>
