@@ -114,16 +114,16 @@
         auth.signInAnonymously()
             .then(() => {
                 var buildUrl = "Build";
-                var loaderUrl = buildUrl + "/ee30087a177772a11bc3f65f0d7a2d0d.loader.js";
+                var loaderUrl = buildUrl + "/f5f165f7eece29b59868186f48c48e51.loader.js";
                 var config = {
                     arguments: [],
-                    dataUrl: buildUrl + "/fed9f3e4b93d69c011ef98850abccb11.data.br",
-                    frameworkUrl: buildUrl + "/5e6155e98a5da4c0bd2784bcda1eb34b.framework.js.br",
-                    codeUrl: buildUrl + "/17b607ac71876de5f877e7f2506dbce6.wasm.br",
+                    dataUrl: buildUrl + "/3f726fd0f1e8f30051397b73c2c014eb.data.br",
+                    frameworkUrl: buildUrl + "/b7a990471407a4cdebbbb9109ff8cabb.framework.js.br",
+                    codeUrl: buildUrl + "/09efd2fb8fb6b2f4751d837b69e8dcf7.wasm.br",
                     streamingAssetsUrl: "StreamingAssets",
                     companyName: "DefaultCompany",
                     productName: "Quantum-Sports-Arena-Brawler",
-                    productVersion: "1.0.2",
+                    productVersion: "1.4.7",
                     showBanner: unityShowBanner,
                 };
                 loadingBar.style.display = "block";
@@ -134,13 +134,6 @@
                         progressBarFull.style.width = 100 * progress + "%";
                     }).then((unityInstance) => {
                         loadingBar.style.display = "none";
-                        const interval = setInterval(() => {
-                            if (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.initData) {
-                                clearInterval(interval);
-                                const inviteCode = window.Telegram.WebApp.initDataUnsafe.start_param || "";
-                                unityInstance.SendMessage('TelegramBridge', 'OnTelegramAPIReady', inviteCode);
-                            }
-                        }, 100);
                     }).catch((message) => {
                         alert(message);
                     });
@@ -212,5 +205,7 @@
         }, 100);
 
     </script>
+
+<script>console.log('%c' + 'PluginYG2 v2.005  build: 40', 'color: #FFDF73; background-color: #454545');</script>
 </body>
 </html>
